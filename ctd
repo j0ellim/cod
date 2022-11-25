@@ -1,38 +1,82 @@
-import time
-account_balance = 200
-questionx = input("Your exams just finished and your friends want to go to a chalet together, \n (1)would you like to join them?,\n (2) or miss out on the fun and stay at home?\n Type in 1 OR 2")
-if questionx == "1":
-   answerx = input("You agreed to go for the chalet. Your friends are splitting the costs evenly amongst everyone. \n Would you like to \n (1) Pay a part of the cost for the chalet - $20 \n (2) Pay for the food and drinks -$15 ")
-   if answerx == '1':
-       print('you have decided to contribute by paying for a part of the chalet cost')
+import turtle #joel
+question4 = input("Your exams just finished and your friends want to go to a chalet together, \n (1)would you like to join them?,\n (2) or miss out on the fun and stay at home?\n Type in 1 OR 2")
+if question4 == "1":
+   answer3 = input("You agreed to go for the chalet. Your friends are splitting the costs evenly amongst everyone. \n Would you like to \n (1) Pay a part of the cost for the chalet - $20 \n (2) Pay for the food and drinks -$15 ")
+   if answer3 == '1':
+       print('You have decided to contribute by paying for a part of the chalet cost')
        time.sleep(2)
        account_balance = account_balance-20
        print('Your account balance is now $'+ str(account_balance))
-   elif questionx == '2':
-       print('you have decided to contribute by paying for the food and drinks')
+   elif answer3 == '2':
+       print('You have decided to contribute by paying for the food and drinks')
        account_balance = account_balance -15
-       print(account_balance)
+       print('Your account balance is now $'+ str(account_balance))
    else:
        print("Invalid Input, Run again\n")
        exit()
-questiony = input("Since the exams are over and its holiday season,  \n (1)do you want to find a part time job?,\n (2) or have fun during the holidays?\n Type in 1 OR 2")
-if questionx == "1":
-   answerx = input("You have agreed to find a part time job \n After searching for a while you have found 2 jobs: \n (1) Bubble tea part time job ( More relaxed ) - $8/hr \n (2) Banquet server job ( More hectic )- $10/hr ")
-   if answerx == '1':
+elif question3 == "2":
+    print('You have decided to save money and stay at home.')
+else:
+    print("Invalid Input, Run again\n")
+    exit()
+question5 = input("Since the exams are over and its holiday season,  \n (1)Do you want to find a part time job?,\n (2) Or have fun during the holidays?\n Type in 1 OR 2")
+if question5 == "1":
+   answer4 = input("You have agreed to find a part time job \n After searching for a while you have found 2 jobs: \n (1) Bubble tea part time job ( More relaxed ) - $8/hr \n (2) Banquet server job ( More hectic )- $10/hr ")
+   if answer4 == '1':
        print('You have decided to work at a bubble tea shop for one month!')
        workinghours= input('How often will you work in the one month? Please enter your total working hours for the month')
        pay= 8*float(workinghours)
        time.sleep(2)
        account_balance = account_balance+(pay)
-       print(account_balance)
-   elif questionx == '2':
+       print('Your account balance is now $'+ str(account_balance))
+       print('Since you have read up more on stocks and experienced a little from stocks,')
+       answer5 = input('Do you want to put the money you earned from this job into stocks? \n (1) Invest your pay \n (2) Keep your pay in your account balance')
+       if answer5 == '1':
+           print('you have decided to invest your pay consisting of ' +str(pay) +' into stocks')
+           p= random.randint(1, 10)
+           if p<5:
+               print('Unfortunately, the stocks that you have invested in did not perform well and you have lost 2 times the amount that you put in')
+               win = turtle.Screen()
+               win.setup(width=800, height=600)
+               win.bgpic("unknown.gif")
+               t = turtle.Turtle()
+               t.shape('classic')  # <---
+               t.circle(60)
+               turtle.bye()
+               account_balance= account_balance - (2*pay)
+               print('Your account balance is now $'+ str(account_balance))
+           else:
+               print('Congratulations, you have made a smart choice and you have earned $300 from stocks')
+               account_balance=account_balance + 300
+               time.sleep(1)
+               print('Your account balance is now $'+ str(account_balance))
+   elif answer4 == '2':
        print('You decided to work for the banquet job for one month! ')
        workinghours = print('You have been assigned to work 6 days a week, each day 5 hours')
        pay= 10*150
-       account_balance = account_balance+ int(pay)
-       print(account_balance)
+       account_balance = account_balance+ float(pay)
+       print('Your account balance is now $'+ str(account_balance))
+       print('Since you have read up more on stocks and experienced a little from stocks,')
+       answer6 = input('Do you want to put the money you earned from this job into stocks? \n (1) Invest your pay \n (2) Keep your pay in your account balance')
+       if answer6 == '1':
+           print('you have decided to invest your pay consisting of ' + str(pay) + 'into stocks')
+           p = random.randint(1, 10)
+           if p < 5:
+               win = turtle.Screen()
+               win.bgpic("unknown.gif")
+               t = turtle.Turtle()
+               t.shape('classic')  # <---
+               t.circle(60)
+               turtle.bye()
+               print('Unfortunately, the stocks that you have invested in did not perform well and you have lost 2 times the amount that you put in')
+               account_balance = account_balance - (2 * pay)
+               print('Your account balance is now $'+ str(account_balance))
+           else:
+               print('Congratulations, you have made a smart choice and you have earned $300 from stocks')
+               account_balance = account_balance + 300
+               print('Your account balance is now $'+ str(account_balance))
    else:
        print("Invalid Input, Run again\n")
        exit()
 else:
-    print('you have decided to relax during the holidays. Your account balance remains the same.')
+    print('You have decided to relax during the holidays. Your account balance remains the same.')
